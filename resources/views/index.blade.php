@@ -2,11 +2,6 @@
 
 @section('content')
 
-	<h3> Roey Swainston Blog </h3>
-	<sub> Something, something, darkside ... </sub>
-
-	<hr />
-
 	@if( count($posts) > 0 )
 		<!-- Begin  Blog Posts --> 
 		@foreach ($posts as $post)

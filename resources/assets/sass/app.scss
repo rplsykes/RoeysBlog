@@ -1,2 +1,32 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.login-container {
+	margin: 15% auto;
+	width: 500px;
+}
+
+.row { 
+	margin-top: 5px;
+}
+
+.center {
+	text-align: center;
+}
+
+.panel-heading {
+	text-align: center;
+}
+
+.alert {
+	text-align: center;
+
+	p {
+		margin-bottom: 5px;
+	}
+
+	ul { 
+		list-style: none;
+		margin: 0; 
+		padding: 0;
+	}
+}

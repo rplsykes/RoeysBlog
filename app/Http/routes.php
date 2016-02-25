@@ -35,5 +35,8 @@ Route::get('/posts/{id}', 'PostController@get');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    
+	Route::get('/login', 'AuthController@showLogin');
+	Route::post('/login', 'AuthController@authenticate');
+
 });
