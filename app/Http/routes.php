@@ -36,7 +36,16 @@ Route::get('/posts/{id}', 'PostController@get');
 
 Route::group(['middleware' => ['web']], function () {
     
-	Route::get('/login', 'AuthController@showLogin');
+	Route::get('/openmeup', 'AuthController@showLogin');
 	Route::post('/login', 'AuthController@authenticate');
+
+	Route::group(['middleware' => ['auth']], function() {
+
+		Route::get('/dashboard', function() {
+			return view('admin.dashboard');
+		});
+
+		Route::get('/logout', 'AuthController@logout');
+	});
 
 });

@@ -58,7 +58,7 @@ class AuthController extends Controller
                     ->withErrors($errors);
             }
 
-    		return redirect()->intended('/admin');
+    		return redirect()->intended('/dashboard');
     	} 
 
         // The user has failed to authenticate.
@@ -68,5 +68,11 @@ class AuthController extends Controller
         return redirect()
             ->back()
             ->withErrors($errors);  
+    }
+
+    public function logout() 
+    {
+        Auth::logout();
+        return redirect()->intended('/openmeup');
     }
 }

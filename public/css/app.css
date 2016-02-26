@@ -20,4 +20,11 @@
     margin: 0;
     padding: 0; }
 
+body {
+  margin-top: 72px; }
+
+.panel-sexy {
+  background-color: #a6a6a6;
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map */
