@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/openmeup', 'AuthController@showLogin');
 	Route::post('/login', 'AuthController@authenticate');
 
+	// Requires the user to be authenticated.
 	Route::group(['middleware' => ['auth']], function() {
 
 		Route::get('/dashboard', function() {
@@ -46,6 +47,14 @@ Route::group(['middleware' => ['web']], function () {
 		});
 
 		Route::get('/logout', 'AuthController@logout');
+
+		// Requires Manage Users Permission.
+		Route::group(['middleware' => ['permission:manage_users']], function() {
+
+			Route::get('/users', 'UsersController@show');
+
+		});
+		
 	});
 
 });

@@ -11,22 +11,25 @@
 <!-- Begin Dashboard Buttons -->
 <div class="row">
 
+	<!-- Manage Users -->
+	@if ( Auth::user()->hasRole('manage_users') )
+		<div class="col-md-3">
+			<a href="/users">
+				<div class="panel panel-sexy">
+					<div class="panel-body">
+						<img src="/images/users.svg" />
+					</div>
+
+					<div class="panel-footer">
+						Manage Users
+					</div>
+				</div>
+			</a>
+		</div>
+	@endif
+
 	<!-- Manage Posts -->
-	<div class="col-md-3">
-		<a href="/admin/posts">
-			<div class="panel panel-sexy">
-				<div class="panel-body">
-					<img src="/images/users.svg" />
-				</div>
-
-				<div class="panel-footer">
-					Manage Users
-				</div>
-			</div>
-		</a>
-	</div>
-
-	<!-- Manage users -->
+	@if ( Auth::user()->hasRole('manage_posts') )
 	<div class="col-md-3">
 		<a href="/admin/posts">
 			<div class="panel panel-sexy">
@@ -40,8 +43,10 @@
 			</div>
 		</a>
 	</div>
+	@endif
 
-	<!-- Manage comments -->
+	<!-- Manage Comments -->
+	@if ( Auth::user()->hasRole('manage_comments') )
 	<div class="col-md-3">
 		<a href="/admin/posts">
 			<div class="panel panel-sexy">
@@ -55,8 +60,10 @@
 			</div>
 		</a>
 	</div>
+	@endif
 
 	<!-- Settings -->
+	@if ( Auth::user()->hasRole('settings') )
 	<div class="col-md-3">
 		<a href="/admin/posts">
 			<div class="panel panel-sexy">
@@ -70,6 +77,7 @@
 			</div>
 		</a>
 	</div>
+	@endif
 
 </div>
 <!-- End Dashboard Buttons -->

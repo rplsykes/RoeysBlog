@@ -6,6 +6,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+     protected $table = 'users';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -26,6 +28,17 @@ class User extends Authenticatable
 
     public function roles() 
     {
-        return $this->hasMany('App\Role');
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function hasRole($role_tag) 
+    {
+        foreach ( $this->roles as $role ) {
+            if ( $role->name == $role_tag ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
