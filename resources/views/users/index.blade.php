@@ -12,9 +12,9 @@
 <!-- User List Buttons -->
 <div class="row">
 	<div class="col-md-12">
-		<button>Create New User</button>
-		<button>Lock/Unlock User(s)</button>
-		<button>Activate/Deactive User(s)</button>
+		<button class="btn btn-success">Create New User</button>
+		<button class="btn btn-danger">Lock/Unlock User(s)</button>
+		<button class="btn btn-warning">Activate/Deactive User(s)</button>
 	</div>
 </div>
 
@@ -34,15 +34,15 @@
 				<tr>
 					<td> <input type="checkbox" name="checked" value="{{$user->id}}" /></td>
 					<td> {{ $user->id }} </td>
-					<td> {{ $user->name }} </td>
+					<td><a href="/users/{{$user->id}}">{{ $user->name }}</a></td>
 					<td> {{ $user->email }} </td>
 					<td> 
 						@if ($user->locked )
 							<img src="/images/lock-icon.svg" width="24px" height="24px"
-							title="Account Unlocked" />
+							title="Account Locked" />
 						@else 
 							<img src="/images/open-padlock.svg" width="24px" height="24px"
-							title="Account Locked" />
+							title="Account Unlocked" />
 						@endif
 					</td>
 					<td>

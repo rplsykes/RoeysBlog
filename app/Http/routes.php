@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::group(['middleware' => ['permission:manage_users']], function() {
 
 			Route::get('/users', 'UsersController@show');
-
+			Route::get('/users/{id}', 'UsersController@get');
 		});
 		
 	});
